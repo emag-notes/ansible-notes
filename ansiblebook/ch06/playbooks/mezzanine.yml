@@ -10,10 +10,10 @@
     proj_path: "{{ venv_path }}/{{ proj_dirname }}"
     reqs_path: requirements.txt
     manage: "{{ python }} {{ proj_path }}/manage.py"
-    live_hostname: 192.168.33.10.xip.io
+    live_hostname: "{{ ansible_eth1.ipv4.address }}.xip.io"
     domains:
-      - 192.168.33.10.xip.io
-      - www.192.168.33.10.xip.io
+      - "{{ ansible_eth1.ipv4.address }}.xip.io"
+      - www.{{ ansible_eth1.ipv4.address }}.xip.io
     repo_url: https://github.com/lorin/mezzanine-example.git
     gunicorn_port: 8000
     locale: en_US.UTF-8
